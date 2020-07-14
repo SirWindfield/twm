@@ -1,6 +1,6 @@
 # twm
 
-[![Documentation master](__docs_master_badge__)](__docs_master_url__)
+[![docs_master_badge]][docs_master_url]
 
 > A tiling window manager for Windows, written in Rust.
 
@@ -15,5 +15,5 @@
 | tmw-main     | The running twm instance, implemented as a Windows service.                                                        |
 | twm-protocol | The RPC protocol that the `twm-cli` and `twm-main` use to communicate.                                             |
 
-[docs_master_bage]: https://img.shields.io/badge/docs.rs-twm%20master-green
+[docs_master_badge]: https://img.shields.io/badge/docs.rs-twm%20master-green
 [docs_master_url]: https://twm.zerotask.net
