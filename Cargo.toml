@@ -1,0 +1,9 @@
+[workspace]
+members = [
+    # "cli",
+    "core"
+    # "keyboard-shortcut-parser",
+    # "protocol",
+#    "renderer-windows",
+    # "main"
+]
