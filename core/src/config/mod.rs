@@ -2,10 +2,9 @@
 
 use crate::debug::workspace_path;
 use directories_next::ProjectDirs;
+use file_types::CONFIG_FILE_EXTENSIONS;
 use lazy_static::lazy_static;
 use log::info;
-
-use file_types::CONFIG_FILE_EXTENSIONS;
 use std::path::PathBuf;
 
 mod file_types;
@@ -62,7 +61,7 @@ fn init_config_file_path() -> Option<PathBuf> {
             ),
             Ordering::Less => {
                 panic!("No configuration file found!");
-            },
+            }
         }
     }
 

@@ -1,9 +1,9 @@
 //!
 
 use crate::display::Display;
+use crate::layout::sided_layout::SidedLayout;
 use crate::layout::{Layout, LayoutUpdateInfo};
 use crate::tile::{Tile, TileId};
-use crate::layout::sided_layout::SidedLayout;
 use derivative::Derivative;
 use serde::{Deserialize, Serialize};
 

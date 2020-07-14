@@ -1,6 +1,6 @@
 //!
 
-use crate::layout::{Layout, LayoutUpdateInfo, LayoutMeta};
+use crate::layout::{Layout, LayoutMeta, LayoutUpdateInfo};
 use serde::{Deserialize, Serialize};
 
 ///
@@ -10,9 +10,7 @@ pub struct MiddleLayout {
 }
 
 impl MiddleLayout {
-    fn layout0<'a>(&mut self, _update_info: &'a mut LayoutUpdateInfo<'a>) {
-
-    }
+    fn layout0<'a>(&mut self, _update_info: &'a mut LayoutUpdateInfo<'a>) {}
 }
 
 #[typetag::serde]
