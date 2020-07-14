@@ -1,4 +1,5 @@
-//! Bounding boxes are used to hold the position and size of windows inside the tiling window manager.
+//! Bounding boxes are used to hold the position and size of windows inside the
+//! tiling window manager.
 
 #[cfg(test)]
 use quickcheck::{Arbitrary, Gen};
@@ -8,7 +9,8 @@ use tracing::trace;
 
 /// The result of an horizontal split.
 ///
-/// Splitting a bounding box horizontally results in two new bounding boxes: an upper one and a lower one.
+/// Splitting a bounding box horizontally results in two new bounding boxes: an
+/// upper one and a lower one.
 #[derive(Copy, Clone, Debug, Default, Deserialize, Eq, Hash, PartialEq, Serialize)]
 pub struct HorizontalSplit(BBox, BBox);
 
@@ -18,7 +20,8 @@ impl HorizontalSplit {
         Self::default()
     }
 
-    /// Creates a `HorizontalSplit` holding the given `upper` and `lower` bounding boxes.
+    /// Creates a `HorizontalSplit` holding the given `upper` and `lower`
+    /// bounding boxes.
     pub fn with(upper: BBox, lower: BBox) -> Self {
         Self(upper, lower)
     }
@@ -36,7 +39,8 @@ impl HorizontalSplit {
 
 /// The result of an vertical split.
 ///
-/// Splitting a bounding box vertically results in two new bounding boxes: a left one and a right one.
+/// Splitting a bounding box vertically results in two new bounding boxes: a
+/// left one and a right one.
 #[derive(Copy, Clone, Debug, Default, Deserialize, Eq, Hash, PartialEq, Serialize)]
 pub struct VerticalSplit(BBox, BBox);
 
@@ -46,7 +50,8 @@ impl VerticalSplit {
         Self::default()
     }
 
-    /// Creates a `HorizontalSplit` holding the given `left` and `right` bounding boxes.
+    /// Creates a `HorizontalSplit` holding the given `left` and `right`
+    /// bounding boxes.
     pub fn with(left: BBox, right: BBox) -> Self {
         Self(left, right)
     }
@@ -98,24 +103,29 @@ impl BBox {
         }
     }
 
-    /// Equally splits the surface area of a bounding box, returning the resulting bounding boxes.
+    /// Equally splits the surface area of a bounding box, returning the
+    /// resulting bounding boxes.
     ///
     /// # Arguments
     ///
     /// - `root`: The bounding box that gets split up.
-    /// - `number_of_bboxes`: The number of bounding boxes that the given root bounding box should be split into.
-    /// - `split_direction`: Whether to split the bounding box horizontally or vertically.
+    /// - `number_of_bboxes`: The number of bounding boxes that the given root
+    ///   bounding box should be split into.
+    /// - `split_direction`: Whether to split the bounding box horizontally or
+    ///   vertically.
     ///
     /// # Special cases
     ///
-    /// - If `number_of_bboxes` is 0, this function is a no-op and returns an empty `Vec` with an initial capacity of zero.
+    /// - If `number_of_bboxes` is 0, this function is a no-op and returns an
+    ///   empty `Vec` with an initial capacity of zero.
     #[tracing::instrument]
     pub fn equal_split(
         root: BBox,
         number_of_bboxes: usize,
         split_direction: SplitDirection,
     ) -> Vec<BBox> {
-        // TODO: check if number_of_bboxes(x) > width/height, as we can't move x times if the with is smaller than x
+        // TODO: check if number_of_bboxes(x) > width/height, as we can't move x times
+        // if the with is smaller than x
         trace!("equal_split");
         if number_of_bboxes == 0 {
             return Vec::with_capacity(0);
@@ -184,7 +194,8 @@ impl BBox {
 }
 
 impl fmt::Display for BBox {
-    /// Prints the bounding box as a human-readable string. The format is `{width}x{height}@(x,y)`.
+    /// Prints the bounding box as a human-readable string. The format is
+    /// `{width}x{height}@(x,y)`.
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         write!(f, "{}x{}@({},{})", self.width, self.height, self.x, self.y)
     }
@@ -216,7 +227,8 @@ impl BBoxBuilder {
         Self::default()
     }
 
-    /// Creates a new builder and pre-populates the fields using the bounding box's values.
+    /// Creates a new builder and pre-populates the fields using the bounding
+    /// box's values.
     pub fn from(bbox: BBox) -> Self {
         Self { bbox }
     }
@@ -254,7 +266,8 @@ impl BBoxBuilder {
 /// The direction a split can occur.
 #[derive(Copy, Clone, Debug, Deserialize, Eq, Hash, PartialEq, Serialize)]
 pub enum SplitDirection {
-    /// A horizontal split splits a bounding box into an `upper` and `lower` part.
+    /// A horizontal split splits a bounding box into an `upper` and `lower`
+    /// part.
     Horizontal,
     /// A vertical split splits a bounding box into a `left` and `right` part.
     Vertical,

@@ -15,7 +15,8 @@ pub struct Window {
     pub id: WindowId,
     /// The OS' window handle.
     pub handle: WindowHandle,
-    /// The original bounding box of the window before resizing it using a layout.
+    /// The original bounding box of the window before resizing it using a
+    /// layout.
     pub original_bbox: BBox,
 }
 

@@ -1,4 +1,5 @@
-//! The `Manager` is responsible for managing all workspaces and keeping track of the active.
+//! The `Manager` is responsible for managing all workspaces and keeping track
+//! of the active.
 
 use crate::workspace::{Workspace, WorkspaceId};
 

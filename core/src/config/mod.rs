@@ -33,8 +33,8 @@ fn init_config_file_path() -> Option<PathBuf> {
     if let Some(project_dirs) = ProjectDirs::from("net", "zerotask", "twm") {
         let config_dir = project_dirs.config_dir();
 
-        // In the case the build is running in debug mode, a special config file is used for faster
-        // iterations.
+        // In the case the build is running in debug mode, a special config file is used
+        // for faster iterations.
         if cfg!(debug_assertions) {
             println!("Running in debug, using debug configuration file");
             return Some(workspace_path().join("config.debug.toml"));

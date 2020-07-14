@@ -9,9 +9,7 @@
 use anyhow::{anyhow, Result};
 use lazy_static::lazy_static;
 use serde::de::DeserializeOwned;
-use std::fs::File;
-use std::io::Read;
-use std::path::Path;
+use std::{fs::File, io::Read, path::Path};
 
 lazy_static! {
     /// Contains all currently supported configuration file types.
@@ -49,7 +47,8 @@ lazy_static! {
 ///
 /// # Returns
 ///
-/// The parsed config file. It's up to the user to denote the type of the config file.
+/// The parsed config file. It's up to the user to denote the type of the config
+/// file.
 pub fn parse<T: DeserializeOwned>(path: impl AsRef<Path>) -> Result<T> {
     let file_extension = path
         .as_ref()

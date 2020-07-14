@@ -1,13 +1,18 @@
-//! A sided layout uses have of the workspace's bounding box for a `focused` tile. The rest of the space is evenly shared between the rest of the tiles.
+//! A sided layout uses have of the workspace's bounding box for a `focused`
+//! tile. The rest of the space is evenly shared between the rest of the tiles.
 
-use crate::bbox::{BBox, SplitDirection};
-use crate::layout::{Layout, LayoutMeta, LayoutUpdateInfo};
-use crate::tile::Tile;
-use crate::util::Direction;
+use crate::{
+    bbox::{BBox, SplitDirection},
+    layout::{Layout, LayoutMeta, LayoutUpdateInfo},
+    tile::Tile,
+    util::Direction,
+};
 use serde::{Deserialize, Serialize};
 use tracing::{debug, trace};
 
-/// A `SidedBBox` splits a bounding box into two parts, the `sided` part, which is taken by the `focused` tile and the `rest` part, that is shared between the rest of the tiles.
+/// A `SidedBBox` splits a bounding box into two parts, the `sided` part, which
+/// is taken by the `focused` tile and the `rest` part, that is shared between
+/// the rest of the tiles.
 #[derive(Copy, Clone, Debug, Deserialize, Eq, Hash, PartialEq, Serialize)]
 struct SidedBBox(BBox, BBox);
 
@@ -50,7 +55,8 @@ impl SidedLayout {
         }
     }
 
-    /// Returns the bounding boxes depending on which side the focused tile is rendered to.
+    /// Returns the bounding boxes depending on which side the focused tile is
+    /// rendered to.
     fn bbox_for_side(self, boundary: BBox) -> SidedBBox {
         match self.side {
             Direction::Left => {
@@ -72,12 +78,14 @@ impl SidedLayout {
         }
     }
 
-    /// Returns the split direction used for splitting up the `rest` of the bounding box.
+    /// Returns the split direction used for splitting up the `rest` of the
+    /// bounding box.
     ///
     /// # Returns
     ///
-    /// For directions `Left` and `Right`, this function returns `SplitDirection::Horizontal`.
-    /// For directions `Up` and `Down`, this function returns `SplitDirection::Vertical`.
+    /// For directions `Left` and `Right`, this function returns
+    /// `SplitDirection::Horizontal`. For directions `Up` and `Down`, this
+    /// function returns `SplitDirection::Vertical`.
     fn split_direction(self) -> SplitDirection {
         match self.side {
             Direction::Left | Direction::Right => SplitDirection::Horizontal,
@@ -161,11 +169,13 @@ impl Layout for SidedLayout {
 
 #[cfg(test)]
 mod tests {
-    use crate::bbox::BBox;
-    use crate::display::Display;
-    use crate::tile::{Tile, TileId};
-    use crate::window::Window;
-    use crate::workspace::Workspace;
+    use crate::{
+        bbox::BBox,
+        display::Display,
+        tile::{Tile, TileId},
+        window::Window,
+        workspace::Workspace,
+    };
 
     pub fn init_tracing() {
         use tracing::Level;

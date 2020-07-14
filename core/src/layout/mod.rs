@@ -1,13 +1,12 @@
 //! A layout is responsible for laying out tiles inside a workspace.
 //!
-//! These is done by changing the bounding box of each tile according to the layout's implementation details.
+//! These is done by changing the bounding box of each tile according to the
+//! layout's implementation details.
 
-use crate::bbox::BBox;
-use crate::tile::Tile;
+use crate::{bbox::BBox, tile::Tile};
 pub use dyn_clone::DynClone;
 use serde::{Deserialize, Serialize};
-use std::fmt::Debug;
-use std::hash::Hash;
+use std::{fmt::Debug, hash::Hash};
 
 pub mod middle_layout;
 pub mod sided_layout;
@@ -24,7 +23,8 @@ pub struct LayoutMeta {
 pub struct LayoutUpdateInfo<'a> {
     /// A mutable list of all tiles.
     pub tiles: &'a mut Vec<Tile>,
-    /// The bounding box of the workspace. Tiles should only be layed out inside these boundaries!
+    /// The bounding box of the workspace. Tiles should only be layed out inside
+    /// these boundaries!
     pub workspace_bbox: BBox,
 }
 
@@ -35,7 +35,8 @@ pub trait Layout: DynClone + Debug + Send + Sync {
     fn metadata(&self) -> LayoutMeta;
     /// Invalidates the layout and makes re-calculations possible.
     fn invalidate(&mut self);
-    /// Returns whether the layout is dirty or not. Dirty layouts need re-calculations.
+    /// Returns whether the layout is dirty or not. Dirty layouts need
+    /// re-calculations.
     fn is_dirty(&self) -> bool;
     /// Lays out tiles by changing their bbox.
     fn layout<'a>(&mut self, update_info: &'a mut LayoutUpdateInfo<'a>);

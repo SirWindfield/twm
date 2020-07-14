@@ -6,7 +6,8 @@ use serde::{Deserialize, Serialize};
 /// A display id.
 pub type DisplayId = u32;
 
-/// A display represents a monitor of an user. These can either be physical or virtual ones.
+/// A display represents a monitor of an user. These can either be physical or
+/// virtual ones.
 #[derive(Copy, Clone, Debug, Default, Deserialize, Eq, Hash, PartialEq, Serialize)]
 pub struct Display {
     /// The unique id of the display.

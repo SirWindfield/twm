@@ -1,18 +1,21 @@
 //!
 
-use crate::display::Display;
-use crate::layout::sided_layout::SidedLayout;
-use crate::layout::{Layout, LayoutUpdateInfo};
-use crate::tile::{Tile, TileId};
+use crate::{
+    display::Display,
+    layout::{sided_layout::SidedLayout, Layout, LayoutUpdateInfo},
+    tile::{Tile, TileId},
+};
 use derivative::Derivative;
 use serde::{Deserialize, Serialize};
 
 /// A workspace id.
 pub type WorkspaceId = u32;
 
-/// A workspace keeps track of all tiles and the currently focused tile inside of it.
+/// A workspace keeps track of all tiles and the currently focused tile inside
+/// of it.
 ///
-/// Workspaces have one active layout associated with it that is responsible for laying the tiles out.
+/// Workspaces have one active layout associated with it that is responsible for
+/// laying the tiles out.
 #[derive(Clone, Debug, Derivative, Deserialize, Serialize)]
 pub struct Workspace {
     /// The unique id.
@@ -30,7 +33,8 @@ pub struct Workspace {
 impl Default for Workspace {
     /// Returns a default instance.
     ///
-    /// The default value for the `layout` field is an instance of `SidedLayout`.
+    /// The default value for the `layout` field is an instance of
+    /// `SidedLayout`.
     fn default() -> Self {
         Self {
             id: 0,
@@ -75,7 +79,8 @@ impl Workspace {
     ///
     /// # Note
     ///
-    /// This method does __NOT__ check if a `Tile` with the same id is already inside the workspace. ID management is up to the caller.
+    /// This method does __NOT__ check if a `Tile` with the same id is already
+    /// inside the workspace. ID management is up to the caller.
     pub fn add_tile(&mut self, tile: Tile) {
         self.focused_tile_id = Some(tile.id);
         self.tiles.push(tile);

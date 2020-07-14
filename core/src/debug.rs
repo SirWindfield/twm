@@ -5,7 +5,8 @@ use std::path::PathBuf;
 
 /// Returns the path of the workspace that the crate is in.
 ///
-/// Note that this does not do any checks and assumes that this crate (`twm-core`) is inside a workspace.
+/// Note that this does not do any checks and assumes that this crate
+/// (`twm-core`) is inside a workspace.
 pub(crate) fn workspace_path() -> PathBuf {
     #[derive(Deserialize)]
     struct Manifest {

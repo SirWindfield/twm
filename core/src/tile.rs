@@ -1,7 +1,6 @@
 //! Tiles are used to move around and resize windows inside a workspace.
 
-use crate::bbox::BBox;
-use crate::window::Window;
+use crate::{bbox::BBox, window::Window};
 use serde::{Deserialize, Serialize};
 
 /// The unique id of a tile.
@@ -38,7 +37,8 @@ impl Tile {
     ///
     /// # Note
     ///
-    /// `Tile`s do not keep track of already assigned IDs. It's up to the library user to take care of this.
+    /// `Tile`s do not keep track of already assigned IDs. It's up to the
+    /// library user to take care of this.
     pub fn with(id: TileId, bbox: BBox, window: Window) -> Self {
         Self { id, bbox, window }
     }
