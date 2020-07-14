@@ -51,7 +51,7 @@ impl SidedLayout {
     }
 
     /// Returns the bounding boxes depending on which side the focused tile is rendered to.
-    fn bbox_for_side(&self, boundary: BBox) -> SidedBBox {
+    fn bbox_for_side(self, boundary: BBox) -> SidedBBox {
         match self.side {
             Direction::Left => {
                 let splitted = boundary.vertical_split();
@@ -78,7 +78,7 @@ impl SidedLayout {
     ///
     /// For directions `Left` and `Right`, this function returns `SplitDirection::Horizontal`.
     /// For directions `Up` and `Down`, this function returns `SplitDirection::Vertical`.
-    fn split_direction(&self) -> SplitDirection {
+    fn split_direction(self) -> SplitDirection {
         match self.side {
             Direction::Left | Direction::Right => SplitDirection::Horizontal,
             Direction::Up | Direction::Down => SplitDirection::Vertical,
