@@ -21,6 +21,7 @@
 <span id="21">21</span>
 <span id="22">22</span>
 <span id="23">23</span>
+<span id="24">24</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="doccomment">//! Contains debug-related logic.</span>
 
@@ -29,7 +30,8 @@
 
 <span class="doccomment">/// Returns the path of the workspace that the crate is in.</span>
 <span class="doccomment">///</span>
-<span class="doccomment">/// Note that this does not do any checks and assumes that this crate (`twm-core`) is inside a workspace.</span>
+<span class="doccomment">/// Note that this does not do any checks and assumes that this crate</span>
+<span class="doccomment">/// (`twm-core`) is inside a workspace.</span>
 <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">fn</span> <span class="ident">workspace_path</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="ident">PathBuf</span> {
     <span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Deserialize</span>)]</span>
     <span class="kw">struct</span> <span class="ident">Manifest</span> {

@@ -46,8 +46,7 @@
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="doccomment">//! Tiles are used to move around and resize windows inside a workspace.</span>
 
-<span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">bbox</span>::<span class="ident">BBox</span>;
-<span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">window</span>::<span class="ident">Window</span>;
+<span class="kw">use</span> <span class="kw">crate</span>::{<span class="ident">bbox</span>::<span class="ident">BBox</span>, <span class="ident">window</span>::<span class="ident">Window</span>};
 <span class="kw">use</span> <span class="ident">serde</span>::{<span class="ident">Deserialize</span>, <span class="ident">Serialize</span>};
 
 <span class="doccomment">/// The unique id of a tile.</span>
@@ -84,7 +83,8 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Note</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// `Tile`s do not keep track of already assigned IDs. It&#39;s up to the library user to take care of this.</span>
+    <span class="doccomment">/// `Tile`s do not keep track of already assigned IDs. It&#39;s up to the</span>
+    <span class="doccomment">/// library user to take care of this.</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">with</span>(<span class="ident">id</span>: <span class="ident">TileId</span>, <span class="ident">bbox</span>: <span class="ident">BBox</span>, <span class="ident">window</span>: <span class="ident">Window</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
         <span class="self">Self</span> { <span class="ident">id</span>, <span class="ident">bbox</span>, <span class="ident">window</span> }
     }

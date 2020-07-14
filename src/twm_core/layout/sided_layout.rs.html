@@ -204,17 +204,32 @@
 <span id="204">204</span>
 <span id="205">205</span>
 <span id="206">206</span>
+<span id="207">207</span>
+<span id="208">208</span>
+<span id="209">209</span>
+<span id="210">210</span>
+<span id="211">211</span>
+<span id="212">212</span>
+<span id="213">213</span>
+<span id="214">214</span>
+<span id="215">215</span>
+<span id="216">216</span>
 </pre><div class="example-wrap"><pre class="rust ">
-<span class="doccomment">//! A sided layout uses have of the workspace&#39;s bounding box for a `focused` tile. The rest of the space is evenly shared between the rest of the tiles.</span>
+<span class="doccomment">//! A sided layout uses have of the workspace&#39;s bounding box for a `focused`</span>
+<span class="doccomment">//! tile. The rest of the space is evenly shared between the rest of the tiles.</span>
 
-<span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">bbox</span>::{<span class="ident">BBox</span>, <span class="ident">SplitDirection</span>};
-<span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">layout</span>::{<span class="ident">Layout</span>, <span class="ident">LayoutMeta</span>, <span class="ident">LayoutUpdateInfo</span>};
-<span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">tile</span>::<span class="ident">Tile</span>;
-<span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">util</span>::<span class="ident">Direction</span>;
+<span class="kw">use</span> <span class="kw">crate</span>::{
+    <span class="ident">bbox</span>::{<span class="ident">BBox</span>, <span class="ident">SplitDirection</span>},
+    <span class="ident">layout</span>::{<span class="ident">Layout</span>, <span class="ident">LayoutMeta</span>, <span class="ident">LayoutUpdateInfo</span>},
+    <span class="ident">tile</span>::<span class="ident">Tile</span>,
+    <span class="ident">util</span>::<span class="ident">Direction</span>,
+};
 <span class="kw">use</span> <span class="ident">serde</span>::{<span class="ident">Deserialize</span>, <span class="ident">Serialize</span>};
 <span class="kw">use</span> <span class="ident">tracing</span>::{<span class="ident">debug</span>, <span class="ident">trace</span>};
 
-<span class="doccomment">/// A `SidedBBox` splits a bounding box into two parts, the `sided` part, which is taken by the `focused` tile and the `rest` part, that is shared between the rest of the tiles.</span>
+<span class="doccomment">/// A `SidedBBox` splits a bounding box into two parts, the `sided` part, which</span>
+<span class="doccomment">/// is taken by the `focused` tile and the `rest` part, that is shared between</span>
+<span class="doccomment">/// the rest of the tiles.</span>
 <span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Copy</span>, <span class="ident">Clone</span>, <span class="ident">Debug</span>, <span class="ident">Deserialize</span>, <span class="ident">Eq</span>, <span class="ident">Hash</span>, <span class="ident">PartialEq</span>, <span class="ident">Serialize</span>)]</span>
 <span class="kw">struct</span> <span class="ident">SidedBBox</span>(<span class="ident">BBox</span>, <span class="ident">BBox</span>);
 
@@ -257,7 +272,8 @@
         }
     }
 
-    <span class="doccomment">/// Returns the bounding boxes depending on which side the focused tile is rendered to.</span>
+    <span class="doccomment">/// Returns the bounding boxes depending on which side the focused tile is</span>
+    <span class="doccomment">/// rendered to.</span>
     <span class="kw">fn</span> <span class="ident">bbox_for_side</span>(<span class="self">self</span>, <span class="ident">boundary</span>: <span class="ident">BBox</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">SidedBBox</span> {
         <span class="kw">match</span> <span class="self">self</span>.<span class="ident">side</span> {
             <span class="ident">Direction</span>::<span class="ident">Left</span> <span class="op">=</span><span class="op">&gt;</span> {
@@ -279,12 +295,14 @@
         }
     }
 
-    <span class="doccomment">/// Returns the split direction used for splitting up the `rest` of the bounding box.</span>
+    <span class="doccomment">/// Returns the split direction used for splitting up the `rest` of the</span>
+    <span class="doccomment">/// bounding box.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// For directions `Left` and `Right`, this function returns `SplitDirection::Horizontal`.</span>
-    <span class="doccomment">/// For directions `Up` and `Down`, this function returns `SplitDirection::Vertical`.</span>
+    <span class="doccomment">/// For directions `Left` and `Right`, this function returns</span>
+    <span class="doccomment">/// `SplitDirection::Horizontal`. For directions `Up` and `Down`, this</span>
+    <span class="doccomment">/// function returns `SplitDirection::Vertical`.</span>
     <span class="kw">fn</span> <span class="ident">split_direction</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">SplitDirection</span> {
         <span class="kw">match</span> <span class="self">self</span>.<span class="ident">side</span> {
             <span class="ident">Direction</span>::<span class="ident">Left</span> <span class="op">|</span> <span class="ident">Direction</span>::<span class="ident">Right</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">SplitDirection</span>::<span class="ident">Horizontal</span>,
@@ -368,11 +386,13 @@
 
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">test</span>)]</span>
 <span class="kw">mod</span> <span class="ident">tests</span> {
-    <span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">bbox</span>::<span class="ident">BBox</span>;
-    <span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">display</span>::<span class="ident">Display</span>;
-    <span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">tile</span>::{<span class="ident">Tile</span>, <span class="ident">TileId</span>};
-    <span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">window</span>::<span class="ident">Window</span>;
-    <span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">workspace</span>::<span class="ident">Workspace</span>;
+    <span class="kw">use</span> <span class="kw">crate</span>::{
+        <span class="ident">bbox</span>::<span class="ident">BBox</span>,
+        <span class="ident">display</span>::<span class="ident">Display</span>,
+        <span class="ident">tile</span>::{<span class="ident">Tile</span>, <span class="ident">TileId</span>},
+        <span class="ident">window</span>::<span class="ident">Window</span>,
+        <span class="ident">workspace</span>::<span class="ident">Workspace</span>,
+    };
 
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">init_tracing</span>() {
         <span class="kw">use</span> <span class="ident">tracing</span>::<span class="ident">Level</span>;

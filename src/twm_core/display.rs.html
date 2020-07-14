@@ -31,6 +31,7 @@
 <span id="31">31</span>
 <span id="32">32</span>
 <span id="33">33</span>
+<span id="34">34</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="doccomment">//!</span>
 
@@ -40,7 +41,8 @@
 <span class="doccomment">/// A display id.</span>
 <span class="kw">pub</span> <span class="kw">type</span> <span class="ident">DisplayId</span> <span class="op">=</span> <span class="ident">u32</span>;
 
-<span class="doccomment">/// A display represents a monitor of an user. These can either be physical or virtual ones.</span>
+<span class="doccomment">/// A display represents a monitor of an user. These can either be physical or</span>
+<span class="doccomment">/// virtual ones.</span>
 <span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Copy</span>, <span class="ident">Clone</span>, <span class="ident">Debug</span>, <span class="ident">Default</span>, <span class="ident">Deserialize</span>, <span class="ident">Eq</span>, <span class="ident">Hash</span>, <span class="ident">PartialEq</span>, <span class="ident">Serialize</span>)]</span>
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">Display</span> {
     <span class="doccomment">/// The unique id of the display.</span>

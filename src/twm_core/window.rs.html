@@ -40,6 +40,7 @@
 <span id="40">40</span>
 <span id="41">41</span>
 <span id="42">42</span>
+<span id="43">43</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="doccomment">//! Windows are used to represent running programs of a user.</span>
 
@@ -58,7 +59,8 @@
     <span class="kw">pub</span> <span class="ident">id</span>: <span class="ident">WindowId</span>,
     <span class="doccomment">/// The OS&#39; window handle.</span>
     <span class="kw">pub</span> <span class="ident">handle</span>: <span class="ident">WindowHandle</span>,
-    <span class="doccomment">/// The original bounding box of the window before resizing it using a layout.</span>
+    <span class="doccomment">/// The original bounding box of the window before resizing it using a</span>
+    <span class="doccomment">/// layout.</span>
     <span class="kw">pub</span> <span class="ident">original_bbox</span>: <span class="ident">BBox</span>,
 }
 
