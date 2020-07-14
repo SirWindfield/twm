@@ -1,0 +1,3 @@
+(function() {var implementors = {};
+implementors["twm_core"] = [{"text":"impl Strictest for dyn <a class=\"trait\" href=\"twm_core/layout/trait.Layout.html\" title=\"trait twm_core::layout::Layout\">Layout</a>","synthetic":false,"types":["twm_core::layout::Layout"]}];
+if (window.register_implementors) {window.register_implementors(implementors);} else {window.pending_implementors = implementors;}})()

@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["Display","A display represents a monitor of an user. These can either be physical or virtual ones."]],"type":[["DisplayId","A display id."]]});

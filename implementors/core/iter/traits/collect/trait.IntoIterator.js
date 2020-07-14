@@ -1,0 +1,3 @@
+(function() {var implementors = {};
+implementors["twm_core"] = [{"text":"impl <a class=\"trait\" href=\"https://doc.rust-lang.org/nightly/core/iter/traits/collect/trait.IntoIterator.html\" title=\"trait core::iter::traits::collect::IntoIterator\">IntoIterator</a> for <a class=\"struct\" href=\"twm_core/workspace/struct.Workspace.html\" title=\"struct twm_core::workspace::Workspace\">Workspace</a>","synthetic":false,"types":["twm_core::workspace::Workspace"]}];
+if (window.register_implementors) {window.register_implementors(implementors);} else {window.pending_implementors = implementors;}})()

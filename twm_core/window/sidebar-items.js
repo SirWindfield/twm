@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["Window","A window."]],"type":[["WindowHandle","A window handle."],["WindowId","A window id."]]});

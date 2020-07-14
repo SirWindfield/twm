@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["Tile","A tile inside a workspace."]],"type":[["TileId","The unique id of a tile."]]});

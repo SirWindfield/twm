@@ -1,0 +1,1 @@
+initSidebarItems({"enum":[["Direction","A general direction."]]});

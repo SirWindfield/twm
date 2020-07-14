@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["Workspace","A workspace keeps track of all tiles and the currently focused tile inside of it."]],"type":[["WorkspaceId","A workspace id."]]});
