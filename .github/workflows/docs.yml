@@ -26,6 +26,8 @@ jobs:
 
       - name: Generate documentation
         uses: actions-rs/cargo@v1
+        env:
+          RUSTDOCFLAGS: "--enable-index-page -Zunstable-options"
         with:
           command: doc
           args: --workspace --no-deps
