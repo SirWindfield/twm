@@ -1,0 +1,10 @@
+[taskbar]
+show = true
+
+[[keys]]
+name = "tile.close"
+value = "alt+q"
+
+[[keys]]
+name = "tile.swap.right"
+value = "alt+shift+l"

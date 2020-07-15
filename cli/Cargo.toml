@@ -1,0 +1,17 @@
+[package]
+name = "twm-cli"
+version = "0.1.0"
+authors = ["Sven Lechner <SirWindfield@users.noreply.github.com>"]
+edition = "2018"
+
+[dependencies]
+anyhow = "1.0.31"
+clap = { version = "3.0.0-beta.1", features = ["derive"] }
+env_logger = "0.7.1"
+log = "0.4.8"
+named_pipe = "0.4.1"
+twm-protocol = { path = "../protocol" }
+jsonrpc-core-client = { version = "14.2.0", features = ["ipc"] }
+jsonrpc-core = "14.2.0"
+tokio = "0.1"
+serde_json = "1.0.56"

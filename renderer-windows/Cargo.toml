@@ -1,0 +1,12 @@
+[package]
+name = "twm-renderer-windows"
+version = "0.1.0"
+authors = ["Sven Lechner <SirWindfield@users.noreply.github.com>"]
+edition = "2018"
+
+[dependencies]
+inventory = "0.1.7"
+log = "0.4.8"
+serde = { version = "1.0.114", features = ["derive"] }
+
+twm-core = { path = "../core" }

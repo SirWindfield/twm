@@ -1,0 +1,13 @@
+[package]
+name = "twm-protocol"
+version = "0.1.0"
+authors = ["Sven Lechner <SirWindfield@users.noreply.github.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+jsonrpc-core = "14.2.0"
+jsonrpc-core-client = "14.2.0"
+jsonrpc-derive = "14.2.1"
+twm-core = { path = "../core" }
